@@ -13,7 +13,7 @@
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
-      <button @click="ok" class="ok">OK</button>
+      <button class="ok">OK</button>
       <button @click="inputContent" class="zero">0</button>
       <button @click="inputContent">.</button>
     </div>
@@ -30,7 +30,7 @@ export default class NumberPad extends Vue {
 
   inputContent(event: MouseEvent) {
     const button = (event.target as HTMLButtonElement);
-    const input = button.textContent!;
+    const input = button.textContent as string;
     if (this.output.length === 16) {return;}
     if (this.output === '0') {
       if ('0123456789'.indexOf(input) >= 0) {
@@ -55,8 +55,6 @@ export default class NumberPad extends Vue {
   clear() {
     this.output = '0';
   }
-
-  // ok() {}
 }
 </script>
 
