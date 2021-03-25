@@ -6,11 +6,6 @@ import router from '@/router';
 
 Vue.use(Vuex);
 
-type RootState = {
-  recordList: RecordItem[];
-  tagList: Tag[];
-  currentTag?: Tag;
-}
 
 const store = new Vuex.Store({
   state: {
@@ -27,7 +22,7 @@ const store = new Vuex.Store({
     },
     createRecord(state, record) {
       const record2: RecordItem = clone(record);
-      record2.createAt = new Date();
+      record2.createAt = new Date().toISOString();
       state.recordList.push(record2);
       store.commit('saveRecords');
     },
@@ -41,7 +36,7 @@ const store = new Vuex.Store({
       const names = state.tagList.map(item => item.name);
       if (names.indexOf(name) >= 0) {
         window.alert('此标签已存在');
-      }else {
+      } else {
         const id = createId().toString();
         state.tagList.push({id, name: name});
         store.commit('saveTags');
@@ -57,7 +52,7 @@ const store = new Vuex.Store({
       if (idList.indexOf(id) >= 0) {
         const names = state.tagList.map(item => item.name);
         if (names.indexOf(name) >= 0) {
-          window.alert('此标签名已存在')
+          window.alert('此标签名已存在');
         } else {
           const tag = state.tagList.filter(item => item.id === id)[0];
           tag.name = name;
@@ -65,7 +60,7 @@ const store = new Vuex.Store({
         }
       }
     },
-    removeTag(state,id: string) {
+    removeTag(state, id: string) {
       let index = -1;
       for (let i = 0; i < state.tagList.length; i++) {
         if (state.tagList[i].id === id) {
@@ -73,7 +68,7 @@ const store = new Vuex.Store({
           break;
         }
       }
-      if(index>=0){
+      if (index >= 0) {
         state.tagList.splice(index, 1);
         store.commit('saveTags');
         router.back();
