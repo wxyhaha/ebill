@@ -91,6 +91,10 @@ export default class EditLabel extends Vue {
   padding: 16px;
   margin-top: 44-16px;
 
+  button {
+    background: #f5f5f5;
+  }
+
   svg {
     color: red;
   }

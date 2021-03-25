@@ -59,6 +59,7 @@ export default class Labels extends mixins(TagHelper) {
 
 .createTag {
   border: none;
+  background: #f5f5f5;
 
   &-wrapper {
     text-align: center;
@@ -67,8 +68,6 @@ export default class Labels extends mixins(TagHelper) {
   }
 
   svg {
-    width: 48px;
-    height: 48px;
     color: #999999;
   }
 }
