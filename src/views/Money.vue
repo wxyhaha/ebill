@@ -6,6 +6,10 @@
       <FormItem field-name="备注" placeholder="点击输入备注" :value.sync="record.notes"/>
     </div>
     <Tags @update:value="record.tags=$event"/>
+    <div class="qrcode-wrapper" v-if="screenWidth>500">
+      <img class="qrcode" src="../assets/qrcode.png" alt="网页二维码"/>
+      <h3>手机扫码访问</h3>
+    </div>
   </Layout>
 </template>
 
@@ -27,6 +31,11 @@ export default class Money extends Vue {
   record: RecordItem = {
     tags: [], notes: '', type: '-', amount: 0
   };
+
+  get screenWidth(){
+    return document.documentElement.clientWidth;
+  }
+
 
   get recordList() {
     return this.$store.state.recordList;
@@ -62,5 +71,22 @@ export default class Money extends Vue {
 
 .notes {
   padding: 12px 0;
+}
+.qrcode-wrapper{
+  padding: 0;
+  height: 75px;
+  display: flex;
+  flex-direction:column ;
+  justify-content: space-between;
+  align-items: center;
+  left: 50%;
+  top:50%;
+  .qrcode{
+    width: 60px;
+    height: 60px;
+  }
+  h3{
+    font-size: 4px;
+  }
 }
 </style>
