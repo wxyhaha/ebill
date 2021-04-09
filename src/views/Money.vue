@@ -5,6 +5,9 @@
     <div class="notes">
       <FormItem field-name="备注" placeholder="点击输入备注" :value.sync="record.notes"/>
     </div>
+    <div class="createAt">
+      <FormItem field-name="日期" type="datetime-local" placeholder="点击输入日期" :value.sync="record.createAt"/>
+    </div>
     <Tags @update:value="record.tags=$event"/>
   </Layout>
 </template>
@@ -25,7 +28,7 @@ import Tabs from '@/components/Tabs.vue';
 export default class Money extends Vue {
   recordTypeList = recordTypeList;
   record: RecordItem = {
-    tags: [], notes: '', type: '-', amount: 0
+    tags: [], notes: '', type: '-', amount: 0,createAt:new Date().toISOString()
   };
 
   get recordList() {
