@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <Chart :options="x"/>
+    <div class="chart-wrapper" ref="chartWrapper">
+      <Chart class="chart" :options="x"/>
+    </div>
     <ol v-if="groupedList.length>0">
       <li v-for="(group,index) in groupedList" :key="index">
         <h3 class="title">{{ beautify(group.title) }}<span>￥{{ group.total }}</span></h3>
@@ -36,6 +38,9 @@ export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
     return tags.length === 0 ? '无' : tags.map(t => t.name).join('，');
   }
+  mounted(){
+      (this.$refs.chartWrapper as HTMLDivElement).scrollLeft=9999
+  }
 
   beautify(string: string) {
     const day = dayjs(string);
@@ -55,6 +60,10 @@ export default class Statistics extends Vue {
 
   get x(){
     return {
+      grid: {
+        left: 0,
+        right: 0,
+      },
       xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun',
@@ -62,12 +71,18 @@ export default class Statistics extends Vue {
                'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun',
                'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun',
                'Mon', 'Tue'
-        ]
+        ],
+        axisTick:{alignWithLabel:true},
+        axisLine:{lineStyle:{color:'#666'}}
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        show:false
       },
       series: [{
+        symbol:'circle',
+        symbolSize:13,
+        itemStyle:{color:'#666'},
         data: [820, 932, 901, 934, 1290, 1330, 1320,
                932, 901, 934, 1290, 1330, 1320, 932,
                901, 934, 1290, 1330, 1320, 932, 901,
@@ -75,7 +90,10 @@ export default class Statistics extends Vue {
                1330, 1320],
         type: 'line'
       }],
-      tooltip:{show:true}
+      tooltip:{show:true,triggerOn:'click',
+        formatter: '{c}',
+        position:'top'
+      }
     }
   }
 
@@ -160,5 +178,14 @@ export default class Statistics extends Vue {
 .noResult {
   padding: 16px;
   text-align: center;
+}
+.chart{
+  width: 430%;
+  &-wrapper{
+    overflow: auto;
+    &::-webkit-scrollbar{
+      display: none;
+    }
+  }
 }
 </style>
