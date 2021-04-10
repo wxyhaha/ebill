@@ -86,43 +86,33 @@ export default class NumberPad extends Vue {
 
   .buttons {
     @extend %clearFix;
-    background-color: #d9d9df;
+    background: #f5f5f5;
 
     > button {
       font-size: 18px;
+      background: #f3f0f1;
       width: 20%;
       height: 64px;
       float: left;
       border: none;
-      border-radius: 18px;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
-      box-shadow: -6px -6px 26px rgba(255, 255, 255, .83),
-      5px 10px 15px rgba(0, 0, 0, .05),
-      15px 20px 35px rgba(0, 0, 0, .1),
-      inset -2px -2px 2px rgba(0, 0, 0, .1),
-      inset -1px -1px 3px rgba(255, 255, 255, .6),
-      inset 2px 2px 8px rgba(255, 255, 255, .2),
-      inset 1px 1px 8px rgba(255, 255, 255, .2),
-      -6px -6px 26px rgba(255, 255, 255, .8);
-      background-color: #e9e9ef;
-      margin: 0 2.5%;
-      margin-top: 2.5%;
+      border-radius: 32px;
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+      6px 6px 10px rgba(0, 0, 0, 0.2);
+      margin: 8px 2.5%;
       top: 45%;
       left: 0;
       right: 0;
-      border: 0;
       transition: 300ms ease-out;
       cursor: pointer;
-        &:active, &:focus {
-          box-shadow: inset 2px 2px 16px rgba(255,255,255,.9), inset 8px 8px 9px rgba(0,0,0,.2), 5px 10px 5px rgba(0,0,0,.03), -5px -5px 25px rgba(255,255,255,.1), -2px -2px 9px rgba(100,100,100,.1), inset -2px -2px 9px rgba(255,255,255,1);
-          outline: none;
-          background-color: #e5e5ef;
+        &:active {
+          opacity: 1;
+          box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
           text-shadow: -2px -2px 3px rgba(0,0,0,.2), 2px 2px 3px rgba(255,255,255,1);
-          transform: translateY(3px);
         }
 
       &.ok {
-        height: 64*2px;
+        height: 64*2+16px;
         float: right;
       }
 
