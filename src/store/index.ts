@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import clone from '@/lib/clone';
 import createId from '@/lib/createId';
 import router from '@/router';
+import dayjs from 'dayjs';
 
 Vue.use(Vuex);
 
@@ -23,7 +24,7 @@ const store = new Vuex.Store({
     },
     createRecord(state, record: RecordItem) {
       const record2 = clone(record);
-      record2.createAt =record2.createAt || new Date().toISOString();
+      record2.createAt =dayjs(record2.createAt || new Date().toISOString()).format('YYYY-MM-DD');
       state.recordList.push(record2);
       store.commit('saveRecords');
       window.alert('已保存');
