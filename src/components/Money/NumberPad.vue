@@ -62,9 +62,7 @@ export default class NumberPad extends Vue {
   }
 
   ok() {
-    if (this.output === '0') {
-      return;
-    } else if(this.output === '0.'){
+    if (this.output === '0' || this.output === '0.') {
       return;
     } else {
       const number = parseFloat(this.output);
