@@ -93,7 +93,6 @@ $color-white: #FFF;
     margin-right: 8px;
     box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px $color-white;
     width: 100%;
-    box-sizing: border-box;
   }
 
   .buttons {

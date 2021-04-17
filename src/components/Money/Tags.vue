@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import {mixins} from 'vue-class-component';
 import {TagHelper} from '@/mixins/TagHelper';
@@ -65,7 +64,7 @@ export default class Tags extends mixins(TagHelper) {
       margin-right: 12px;
 
       &.selected {
-        background: darken($bg, 50%);
+        background: #5b6dcd;
         color: white;
       }
     }
