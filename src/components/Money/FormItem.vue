@@ -34,7 +34,7 @@ export default class FormItem extends Vue {
   padding-left: 16px;
 
   .name {
-    padding-right: 16px;
+    padding-right: 4px;
   }
 
   input {

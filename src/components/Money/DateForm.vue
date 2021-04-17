@@ -24,25 +24,12 @@ export default class DateForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
-input[type=date]::-webkit-datetime-edit-text {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-month-field{
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-day-field {
-  -webkit-appearance: none;
-  display: none;
-}
-input[type=date]::-webkit-datetime-edit-year-field {
-  -webkit-appearance: none;
-  display: none;
-}
 input{
-  width: 50px;
+  height: 40px;
+  width: 135px;
+  background-color:#EBECF0;
+  border-radius: 16*20px;
   border:none;
-  background: #f5f5f5;
+  box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #fff;
 }
 </style>

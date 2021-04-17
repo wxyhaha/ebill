@@ -70,13 +70,14 @@ export default class Money extends Vue {
 
   >.notes {
     padding: 12px 0;
-    width: 400px
+    width:400px;
   }
 
   >.createAt {
-    width: 50px;
     display: flex;
-    justify-content: center
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 4px;
 }
 }
 </style>

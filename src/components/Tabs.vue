@@ -33,15 +33,15 @@ export default class Tabs extends Vue {
 
 <style lang="scss" scoped>
 .tabs {
-  background: #c4c4c4;
+  background: #1BDEEC;
   display: flex;
   text-align: center;
-  font-size: 24px;
+  font-size: 12px;
   border: 1px solid;
 
   &-item {
     width: 50%;
-    height: 64px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
