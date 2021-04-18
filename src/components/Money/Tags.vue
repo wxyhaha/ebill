@@ -1,7 +1,9 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button @click="createTag">新增标签</button>
+        <router-link class="editTag"  :to="`/labels`">
+          <Icon name="edit"/>
+        </router-link>
     </div>
     <ul class="current">
       <li v-for="tag in tagList" :key="tag.id" @click="toggle(tag)" :class="{selected:selectedTags.indexOf(tag)>=0}">
@@ -73,12 +75,19 @@ export default class Tags extends mixins(TagHelper) {
   > .new {
     padding-top: 16px;
 
-    button {
-      background: transparent;
-      color: #999;
-      border: none;
-      border-bottom: 1px solid;
-      padding: 0 3px;
+    >.editTag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      width: 26px;
+      height: 26px;
+      background: #5b6dcd;
+      color: white;
+      svg{
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

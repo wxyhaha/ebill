@@ -4,9 +4,9 @@
       <Icon name="money" />
       记账
     </router-link>
-    <router-link to="/labels" class="item" active-class="selected">
-      <Icon name="label"/>
-      标签
+    <router-link to="/bill" class="item" active-class="selected">
+      <Icon name="bill"/>
+      账单
     </router-link>
     <router-link to="/statistics" class="item" active-class="selected">
       <Icon name="statistics"/>
