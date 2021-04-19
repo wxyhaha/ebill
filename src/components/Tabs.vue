@@ -36,7 +36,8 @@ export default class Tabs extends Vue {
 <style lang="scss" scoped>
 .tabs-wrapper{
 .tabs {
-  background: #ffffff;
+  background: #f5f5f5;
+  border-radius: 20px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -46,6 +47,7 @@ export default class Tabs extends Vue {
     width: 50%;
     height: 40px;
     display: flex;
+    border-radius: 20px;
     justify-content: center;
     align-items: center;
     position: relative;
